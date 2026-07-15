@@ -69,8 +69,17 @@
         <thead>
 
           <tr>
+
+            <th>Semester SGPA</th>
+
             <th>Overall CGPA</th>
+
+            <th>Semester Credit Hours</th>
+
             <th>Total Credit Hours</th>
+
+          
+
           </tr>
 
         </thead>
@@ -78,8 +87,17 @@
         <tbody>
 
           <tr v-for="record in records" :key="record._id">
+
+            <td>{{ record.semesterSGPA }}</td>
+
             <td>{{ record.overallCGPA }}</td>
+
+            <td>{{ record.semesterHours }}</td>
+
             <td>{{ record.totalHours }}</td>
+
+         
+
           </tr>
 
         </tbody>
@@ -266,8 +284,15 @@ async function saveRecord() {
     await axios.post(
       "http://localhost:5000/api/students",
       {
+
+        semesterSGPA: Number(semesterSGPA.value),
+
         overallCGPA: Number(overallCGPA.value),
+
+        semesterHours: Number(semesterHours.value),
+
         totalHours: Number(totalHours.value)
+
       }
     )
 
